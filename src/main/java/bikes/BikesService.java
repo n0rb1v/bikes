@@ -46,6 +46,9 @@ public class BikesService {
     }
 
     public List<String> listUsers() {
+        if (bikes.size() == 0) {
+            loadFile();
+        }
         return bikes.stream()
                 .map(Bike::getUser)
                 .collect(Collectors.toList());
